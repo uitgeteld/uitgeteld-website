@@ -11,7 +11,8 @@
 <body>
     <div class="min-h-screen bg-gray-100">
         {{ $slot }}
-    </div>
+    </div>    
+    <x-footer />
 </body>
 
 </html>

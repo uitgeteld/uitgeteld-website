@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-layout>
 	<x-slot name="header">
 		<h2 class="font-semibold text-xl">Create New Account</h2>
 	</x-slot>
@@ -6,7 +6,6 @@
 	<div class="mt-6 bg-white shadow rounded p-6 max-w-md">
 		<form action="{{ route('users.store') }}" method="POST" class="space-y-4">
 			@csrf
-
 			<div>
 				<label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
 				<input type="text"
@@ -60,4 +59,4 @@
 			</button>
 		</form>
 	</div>
-</x-app-layout>
+</x-layout>

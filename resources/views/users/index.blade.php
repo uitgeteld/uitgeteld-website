@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-layout>
     <x-slot name="header">
         <div class="flex justify-between items-center">
             <h2 class="font-semibold text-xl">Users</h2>
@@ -30,4 +30,4 @@
             </tbody>
         </table>
     </div>
-</x-app-layout>
+</x-layout>

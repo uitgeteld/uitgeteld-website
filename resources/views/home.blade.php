@@ -1,14 +1,4 @@
-<!doctype html>
-<html lang="nl">
-
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>uitgeteld.xyz</title>
-    @vite('resources/css/app.css')
-</head>
-
-<body class="min-h-screen bg-white text-black font-sans antialiased relative overflow-hidden">
+<x-layout>
 
     <div class="absolute top-8 left-8 z-20">
         <input type="checkbox" id="menu_checkbox" class="hidden">
@@ -37,10 +27,6 @@
             </h1>
         </div>
     </main>
-
-    <!-- <footer class="absolute bottom-2 left-0 right-0 text-center">
-        <p class="text-gray-400 text-xs tracking-wide">© 2025</p>
-    </footer> -->
 
     <style>
         @keyframes fadeUp {
@@ -114,6 +100,5 @@
             pointer-events: auto;
         }
     </style>
-</body>
 
-</html>
+</x-layout>
