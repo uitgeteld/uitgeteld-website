@@ -1,1 +1,1 @@
-<footer>&copy; 2025 uitgeteld.xyz</footer>
+<footer class="p-4 text-center text-gray-600">&copy; 2025 uitgeteld.xyz</footer>

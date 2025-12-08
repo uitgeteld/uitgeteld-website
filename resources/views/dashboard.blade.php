@@ -1,51 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
+<x-layout :showFooter="false">
+	<div class="min-h-screen bg-slate-50 p-8">
+		<header class="flex justify-between items-center mb-6">
+			<h1 class="text-2xl font-bold text-gray-900">Dashboard</h1>
+			<form action="{{ route('logout') }}" method="POST">
+				@csrf
+				<button type="submit" class="bg-red-700 text-white px-4 py-2 rounded hover:bg-red-800 transition duration-200">Logout</button>
+			</form>
+		</header>
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Dashboard</title>
-	<style>
-		body {
-			font-family: sans-serif;
-			background: #f8fafc;
-			padding: 2rem;
-		}
+		<hr class="border-gray-300 mb-6">
 
-		header {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-		}
-
-		button {
-			background: #e3342f;
-			color: white;
-			border: none;
-			padding: 10px 15px;
-			border-radius: 5px;
-			cursor: pointer;
-		}
-
-		button:hover {
-			background: #cc1f1a;
-		}
-	</style>
-</head>
-
-<body>
-	<header>
-		<h1>Dashboard</h1>
-		<form action="{{ route('logout') }}" method="POST">
-			@csrf
-			<button type="submit">Logout</button>
-		</form>
-	</header>
-
-	<hr>
-
-	<h3>Welcome, {{ Auth::user()->name }} 🎉</h3>
-	<p>Your email: {{ Auth::user()->email }}</p>
-</body>
-
-</html>
+		<h3 class="text-lg font-bold text-gray-900 mb-2">Welcome, {{ Auth::user()->name }} 🎉</h3>
+		<!-- <p class="text-gray-600">Your email: {{ Auth::user()->email }}</p> -->
+	</div>
+</x-layout>

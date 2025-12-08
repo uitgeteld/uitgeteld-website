@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout :footerFixed="false" :showFooter="false">
 
     <div class="absolute top-8 left-8 z-20">
         <input type="checkbox" id="menu_checkbox" class="hidden">

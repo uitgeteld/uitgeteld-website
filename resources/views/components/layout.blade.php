@@ -9,10 +9,25 @@
 </head>
 
 <body>
-    <div class="min-h-screen bg-gray-100">
+
+    <main8 class="bg-gray-100">
         {{ $slot }}
-    </div>    
+    </main>
+
+    @php
+    $footerFixed = isset($footerFixed) ? $footerFixed : true;
+    $showFooter = isset($showFooter) ? $showFooter : true;
+    @endphp
+
+    @if ($showFooter)
+    @if ($footerFixed)
+    <div class="fixed bottom-2 left-0 right-0 z-50">
+        <x-footer />
+    </div>
+    @else
     <x-footer />
+    @endif
+    @endif
 </body>
 
 </html>
