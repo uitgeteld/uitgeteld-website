@@ -10,7 +10,7 @@
 
 <body>
 
-    <main8 class="bg-gray-100">
+    <main class="bg-gray-100">
         {{ $slot }}
     </main>
 
