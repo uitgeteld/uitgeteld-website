@@ -10,7 +10,7 @@ use App\Http\Middleware\IsAdmin;
 
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
 
 Route::get('/login', [LoginController::class, 'showLogin'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);

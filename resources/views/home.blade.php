@@ -1,4 +1,4 @@
-<x-layout :footerFixed="false" :showFooter="false">
+<x-layout :showFooter="false">
 
     <div class="absolute top-8 left-8 z-20">
         <input type="checkbox" id="menu_checkbox" class="hidden">
@@ -8,13 +8,10 @@
             <div class="bar-dot"></div>
         </label>
 
-        <nav class="menu-nav mt-3 opacity-0 pointer-events-none transition-all duration-300">
+        <nav class="menu-nav mt-3 opacity-0 pointer-events-none transition-all! duration-500!">
             <ul class="p-0 space-y-1">
                 <li class="list-none">
                     <a href="/dashboard" class="text-gray-500 text-base no-underline transition-all duration-300 hover:text-black hover:translate-x-1 inline-block">Dashboard</a>
-                </li>
-                <li class="list-none">
-                    <a href="/projects" class="text-gray-500 text-base no-underline transition-all duration-300 hover:text-black hover:translate-x-1 inline-block">Projects</a>
                 </li>
             </ul>
         </nav>
@@ -22,7 +19,7 @@
 
     <main class="flex items-center justify-center min-h-screen">
         <div class="text-center animate-fadeUp">
-            <h1 class="text-[clamp(32px,10vw,96px)] font-bold tracking-tight leading-none mb-4 animate-float">
+            <h1 class="text-[clamp(20px,7vw,96px)] font-bold tracking-tight leading-none mb-4 animate-float">
                 uitgeteld.xyz
             </h1>
         </div>

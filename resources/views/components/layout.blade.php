@@ -8,9 +8,13 @@
     @vite('resources/css/app.css')
 </head>
 
-<body>
+<body class="flex">
 
-    <main class="bg-gray-100">
+    @php
+    $hasSidebar = isset($hasSidebar) ? $hasSidebar : false;
+    @endphp
+
+    <main class="{{ $hasSidebar ? 'ml-38 flex-1' : 'w-full' }} bg-slate-100">
         {{ $slot }}
     </main>
 

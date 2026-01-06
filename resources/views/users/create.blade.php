@@ -1,7 +1,12 @@
-<x-layout>
+<x-layout :hasSidebar="true">
 	<x-slot name="header">
 		<h2 class="font-semibold text-xl">Create New Account</h2>
 	</x-slot>
+
+	<x-sidebar>
+        <a href="{{ route('dashboard') }}" class="block px-3 py-2 text-gray-600 font-medium transition-all duration-300 hover:text-black hover:translate-x-1">← Dashboard</a>
+		<a href="{{ route('users.index') }}" class="block px-3 py-2 text-gray-600 font-medium transition-all duration-300 hover:text-black hover:translate-x-1">Users</a>
+	</x-sidebar>
 
 	<div class="mt-6 bg-white shadow rounded p-6 max-w-md">
 		<form action="{{ route('users.store') }}" method="POST" class="space-y-4">
