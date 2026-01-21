@@ -25,8 +25,8 @@
 
     @if ($showFooter)
     @if ($footerFixed)
-    <div class="fixed bottom-2 left-0 right-0 z-50">
-        <x-footer />
+    <div class="fixed bottom-2 {{ $hasSidebar ? 'left-38 right-0' : 'left-0 right-0' }} z-50">
+        <x-footer  />
     </div>
     @else
     <x-footer />
