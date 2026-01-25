@@ -11,11 +11,9 @@ $type = $type ?? false;
         <div class="bar-dot"></div>
         <div class="bar-dot"></div>
     </label>
-    <nav class="menu-nav mt-3 opacity-0 pointer-events-none transition-all! duration-500!">
-        <ul class="p-0 space-y-1">
-            <li class="list-none">
-                {{ $slot }}
-            </li>
+    <nav class="menu-nav mt-3 opacity-0 pointer-events-none transition-all duration-500">
+        <ul class="flex flex-col p-0 space-y-1">
+            {{ $slot }}
         </ul>
     </nav>
 </div>
@@ -27,9 +25,7 @@ $type = $type ?? false;
     <div class="p-3 border-t border-gray-200">
         <form action="{{ route('logout') }}" method="POST" class="w-full">
             @csrf
-            <button type="submit" class="w-full bg-gray-900 text-white py-2 px-2 text-xs hover:bg-gray-800 transition cursor-pointer">
-                Logout
-            </button>
+            <button type="submit" class="w-full bg-gray-900 text-white py-2 px-2 text-xs hover:bg-gray-800 transition cursor-pointer">Logout</button>
         </form>
     </div>
 </div>
