@@ -14,7 +14,7 @@
     $header = $header ?? false;
     @endphp
 
-    <main class="{{ $header ? 'md:ml-38 flex-1 w-full mt-16 md:mt-0 p-8' : 'w-full' }}">
+    <main class="{{ $header ? 'md:ml-36 flex-1 w-full mt-16 md:mt-0 p-8' : 'w-full' }}">
         {{ $slot }}
     </main>
 
@@ -23,7 +23,7 @@
     @endphp
 
     @if ($footer)
-    <div class="fixed bottom-2 {{ $header ? 'md:left-38 left-0 right-0' : 'left-0 right-0' }} z-50">
+    <div class="fixed bottom-2 {{ $header ? 'md:left-36 left-0 right-0' : 'left-0 right-0' }} z-50">
         <x-footer />
     </div>
     @endif

@@ -24,7 +24,7 @@ $type = $type ?? false;
     </nav>
 </header>
 @elseif($type === 'sidebar')
-<header class="fixed left-0 top-0 w-38 h-screen bg-white border-r border-gray-200 flex flex-col z-40 overflow-hidden hidden md:flex">
+<header class="fixed left-0 top-0 w-36 h-screen bg-white border-r border-gray-200 flex-col z-40 overflow-hidden hidden md:flex">
     <div class="flex-1 overflow-hidden py-3">
         {{ $slot }}
     </div>

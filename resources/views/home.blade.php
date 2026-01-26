@@ -1,15 +1,14 @@
 <x-layout :footer="false">
     <x-header type="burger">
-        <a href="/dashboard" class="text-gray-500 text-base no-underline transition-all duration-300 hover:text-black hover:translate-x-1 inline-block">Dashboard</a>
+        <a href="{{ route('dashboard') }}" class="text-gray-500 text-base no-underline transition-all duration-300 hover:text-black hover:translate-x-1 inline-block">Dashboard</a>
+        <a href="{{ route('projects.index') }}" class="text-gray-500 text-base no-underline transition-all duration-300 hover:text-black hover:translate-x-1 inline-block">Projects</a>
     </x-header>
 
-    <main class="flex items-center justify-center min-h-screen">
-        <div class="text-center animate-fadeUp">
+        <div class="text-center animate-fadeUp flex items-center justify-center min-h-screen">
             <h1 class="text-[clamp(20px,7vw,96px)] font-bold tracking-tight leading-none mb-4 animate-float">
                 uitgeteld.xyz
             </h1>
         </div>
-    </main>
 
     <style>
         @keyframes fadeUp {
