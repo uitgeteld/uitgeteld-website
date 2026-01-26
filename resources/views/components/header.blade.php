@@ -4,7 +4,7 @@ $type = $type ?? false;
 
 @if(empty($type) || $type === false)
 @elseif($type === 'burger')
-<div class="absolute top-8 left-8 z-20">
+<header class="absolute top-8 left-8 z-20">
     <input type="checkbox" id="menu_checkbox" class="hidden">
     <label for="menu_checkbox" class="block w-8 h-8 cursor-pointer">
         <div class="bar-dot"></div>
@@ -14,21 +14,37 @@ $type = $type ?? false;
     <nav class="menu-nav mt-3 opacity-0 pointer-events-none transition-all duration-500">
         <ul class="flex flex-col p-0 space-y-1">
             {{ $slot }}
+            @if(Auth::check())
+            <form action="{{ route('logout') }}" method="POST" class="w-full flex justify-center mt-2">
+                @csrf
+                <button type="submit" class="rounded-full px-4 py-2 bg-gray-900 text-white text-sm font-medium shadow hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-700 focus:ring-offset-2 transition cursor-pointer">Logout</button>
+            </form>
+            @endif
         </ul>
     </nav>
-</div>
+</header>
 @elseif($type === 'sidebar')
-<div class="fixed left-0 top-0 w-38 h-screen bg-white border-r border-gray-200 flex flex-col z-40 overflow-hidden">
+<header class="fixed left-0 top-0 w-38 h-screen bg-white border-r border-gray-200 flex flex-col z-40 overflow-hidden hidden md:flex">
     <div class="flex-1 overflow-hidden py-3">
         {{ $slot }}
     </div>
-    <div class="p-3 border-t border-gray-200">
+    <div class="p-2 border-t border-gray-200">
         <form action="{{ route('logout') }}" method="POST" class="w-full">
             @csrf
             <button type="submit" class="w-full bg-gray-900 text-white py-2 px-2 text-xs hover:bg-gray-800 transition cursor-pointer">Logout</button>
         </form>
     </div>
-</div>
+</header>
+
+<header class="fixed top-0 left-0 w-full h-16 bg-white border-b border-gray-200 flex items-center justify-between z-40 px-4 md:hidden">
+    <div class="flex-1 flex items-center overflow-hidden">
+        {{ $slot }}
+    </div>
+    <form action="{{ route('logout') }}" method="POST" class="ml-4">
+        @csrf
+        <button type="submit" class="rounded-full px-4 py-2 bg-gray-900 text-white text-sm font-medium shadow hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-700 focus:ring-offset-2 transition">Logout</button>
+    </form>
+</header>
 @endif
 
 <style>
