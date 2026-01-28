@@ -6,18 +6,12 @@
                 <h1 class="text-3xl font-light text-gray-900">Sign in</h1>
             </div>
 
-            @if ($errors->any())
-            <div class="mb-6 p-3 bg-red-50 border border-red-200 rounded text-red-700 text-sm">
-                {{ $errors->first() }}
-            </div>
-            @endif
-
             <form action="{{ url('/login') }}" method="POST" class="space-y-5">
                 @csrf
 
                 <div>
-                    <label for="email" class="block text-sm text-gray-700 mb-2">Email</label>
-                    <input id="email" type="email" name="email" value="{{ old('email') }}" required
+                    <label for="email_or_name" class="block text-sm text-gray-700 mb-2">Email or Username</label>
+                    <input id="email_or_name" type="text" name="email_or_name" value="{{ old('email_or_name') }}" required
                         class="w-full px-4 py-2 border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-gray-400">
                 </div>
 
@@ -36,6 +30,14 @@
                     Sign in
                 </button>
             </form>
+
+            @if ($errors->any())
+            <div class="mt-6 p-3 bg-red-50 border border-red-200 rounded text-red-700 text-sm">
+                <!-- {{ $errors->first() }} -->
+                  Invalid email or password.
+            </div>
+            @endif
+
         </div>
     </div>
 

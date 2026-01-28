@@ -15,10 +15,17 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-        $credentials = $request->validate([
-            'email' => ['required', 'email'],
+        $request->validate([
+            'email_or_name' => ['required', 'string'],
             'password' => ['required'],
         ]);
+
+        $loginField = filter_var($request->email_or_name, FILTER_VALIDATE_EMAIL) ? 'email' : 'name';
+        
+        $credentials = [
+            $loginField => $request->email_or_name,
+            'password' => $request->password,
+        ];
 
         $remember = $request->filled('remember');
 
@@ -28,8 +35,8 @@ class LoginController extends Controller
         }
 
         return back()->withErrors([
-            'email' => 'Invalid credentials.',
-        ])->onlyInput('email');
+            'email_or_name' => 'Invalid credentials.',
+        ])->onlyInput('email_or_name');
     }
 
     public function logout(Request $request)
