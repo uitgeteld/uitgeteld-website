@@ -32,13 +32,15 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:255', 'regex:/^[a-zA-Z0-9_-]+$/', 'unique:users,name'],
             'email' => ['required', 'email', 'unique:users,email'],
-            'password' => ['required', 'string', 'min:6', 'confirmed'],
+            'password' => ['required', 'string', 'min:6'],
+        ], [
+            'name.regex' => 'The name can only contain letters, numbers, underscores, and hyphens (no spaces or special characters).'
         ]);
 
         User::create([
-            'name' => $request->name,
+            'name' => trim($request->name),
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'is_admin' => false,
