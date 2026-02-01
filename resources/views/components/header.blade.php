@@ -70,6 +70,10 @@ $type = $type ?? false;
         margin-bottom: 0;
     }
 
+    #menu_checkbox+label {
+        transition: 0.3s;
+    }
+
     #menu_checkbox:checked+label {
         transform: rotateZ(-90deg);
     }

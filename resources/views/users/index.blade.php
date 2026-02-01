@@ -16,7 +16,7 @@
             <h2 class="text-lg font-semibold text-gray-800">{{ $user->name }}</h2>
             <p class="text-gray-600">{{ $user->email }}</p>
             <div class="mt-4 flex gap-2 items-center">
-                <a href="{{ route('users.edit', $user) }}" class="flex items-center justify-center px-2 py-1 text-xs bg-blue-500 text-white rounded hover:bg-blue-600 transition">Edit</a>
+                <a href="{{ route('users.edit', $user) }}" class="flex items-center justify-center px-2 py-1 text-xs rounded bg-gray-900 text-white  hover:bg-gray-800 transition">Edit</a>
                 <form action="{{ route('users.destroy', $user) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this user?');" class="inline-block">
                     @csrf
                     @method('DELETE')
