@@ -4,8 +4,8 @@
         <a href="{{ route('projects.index') }}" class="text-gray-500 text-base no-underline transition-all duration-300 hover:text-black hover:translate-x-1 inline-block">Projects</a>
     </x-header>
 
-    <div class="text-center animate-fadeUp flex items-center justify-center min-h-screen">
-        <h1 class="text-[clamp(20px,7vw,96px)] font-bold tracking-tight leading-none animate-float">
+    <div class="text-center animate-[fadeUp_1.2s_cubic-bezier(0.16,1,0.3,1)_both] flex items-center justify-center min-h-screen">
+        <h1 class="text-[clamp(20px,7vw,96px)] font-bold tracking-tight leading-none animate-[float_3s_ease-in-out_infinite]">
             uitgeteld.xyz
         </h1>
     </div>
@@ -34,13 +34,5 @@
         50% {
             transform: translateY(-10px);
         }
-    }
-
-    .animate-fadeUp {
-        animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
-    }
-
-    .animate-float {
-        animation: float 3s ease-in-out infinite;
     }
 </style>
