@@ -28,11 +28,16 @@
                 <input type="password" name="password" id="password" required
                     class="w-full px-4 py-2 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:border-gray-400">
             </div>
+            <div class="flex items-center">
+                <input type="checkbox" name="is_admin" id="is_admin" value="1" {{ old('is_admin') ? 'checked' : '' }}
+                    class="w-4 h-4 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:border-gray-400 cursor-pointer">
+                <label for="is_admin" class="ml-2 text-sm text-gray-700">Admin</label>
+            </div>
             <div class="flex gap-3 pt-4">
-                <button type="submit" class="px-6 py-2 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition-colors focus:ring-2 focus:ring-gray-700 focus:ring-offset-2">
+                <button type="submit" class="px-6 py-2 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition-colors focus:ring-2 focus:ring-gray-700 focus:ring-offset-2 cursor-pointer">
                     Create User
                 </button>
-                <a href="{{ route('users.index') }}" class="px-6 py-2 bg-gray-200 text-gray-700 font-medium rounded-lg hover:bg-gray-300 transition-colors">
+                <a href="{{ route('users.index') }}" class="px-6 py-2 bg-gray-200 text-gray-700 font-medium rounded-lg hover:bg-gray-300 transition-colors cursor-pointer">
                     Cancel
                 </a>
             </div>
