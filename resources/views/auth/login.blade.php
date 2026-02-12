@@ -34,7 +34,7 @@
             @if ($errors->any())
             <div class="mt-6 p-3 bg-red-50 border border-red-200 rounded text-red-700 text-sm">
                 <!-- {{ $errors->first() }} -->
-                  Invalid email or password.
+                Invalid email or password.
             </div>
             @endif
 

@@ -6,7 +6,7 @@ $type = $type ?? false;
 @elseif($type === 'burger')
 <header class="absolute top-8 left-8 z-20">
     <input type="checkbox" id="menu_checkbox" class="hidden peer">
-    <label for="menu_checkbox" class="block w-8 h-8 cursor-pointer transition-transform duration-300 peer-checked:-rotate-90 [&:has(~input:checked)_.bar-dot]:w-1 [&:has(~input:checked)_.bar-dot]:ml-3.5 [&:has(~input:checked)_.bar-dot]:mb-0.5">
+    <label for="menu_checkbox" class="block w-8 h-8 cursor-pointer transition-transform duration-400 peer-checked:-rotate-90 [&:has(~input:checked)_.bar-dot]:w-1 [&:has(~input:checked)_.bar-dot]:ml-3.5 [&:has(~input:checked)_.bar-dot]:mb-0.5">
         <div class="bar-dot h-[3px] w-6 bg-gray-900 mb-1 rounded-[3px] transition-all duration-300"></div>
         <div class="bar-dot h-[3px] w-[18px] bg-gray-900 mb-1 rounded-[3px] transition-all duration-300"></div>
         <div class="bar-dot h-[3px] w-8 bg-gray-900 mb-0 rounded-[3px] transition-all duration-300"></div>

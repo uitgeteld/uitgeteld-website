@@ -15,7 +15,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         @foreach ($users as $user)
         <div class="bg-white p-4 rounded-lg shadow hover:shadow-lg transition-shadow duration-300">
-            <h2 class="text-lg font-semibold {{ $user->is_admin ? "text-red-800" : "text-gray-800"}}">{{ $user->name }}</h2>
+            <h2 class="text-lg font-semibold {{ $user->is_admin ? "text-red-600" : "text-gray-800"}}">{{ $user->name }}</h2>
             <p class="text-gray-600">{{ $user->email }}</p>
             <div class="mt-4 flex gap-2 items-center">
                 <a href="{{ route('users.edit', $user) }}" class="flex items-center justify-center px-2 py-1 text-xs rounded bg-gray-900 text-white  hover:bg-gray-800 transition">Edit</a>
