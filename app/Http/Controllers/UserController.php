@@ -62,7 +62,9 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('users.edit', [
+            'user' => $user
+        ]);
     }
 
     /**
@@ -70,7 +72,23 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $request->validate([
+            'name' => ['required', 'string', 'max:255', 'regex:/^[a-zA-Z0-9_-]+$/', 'unique:users,name,' . $user->id],
+            'email' => ['required', 'email', 'unique:users,email,' . $user->id],
+            'password' => ['nullable', 'string', 'min:6'],
+        ], [
+            'name.regex' => 'The name can only contain letters, numbers, underscores, and hyphens (no spaces or special characters).'
+        ]);
+
+        $user->name = trim($request->name);
+        $user->email = $request->email;
+        if ($request->filled('password')) {
+            $user->password = Hash::make($request->password);
+        }
+        $user->is_admin = $request->has('is_admin');
+        $user->save();
+
+        return redirect()->route('users.index')->with('success', 'User updated successfully.');
     }
 
     /**
