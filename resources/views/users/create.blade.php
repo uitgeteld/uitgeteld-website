@@ -44,7 +44,7 @@
         </form>
 
         @if ($errors->any())
-        <div class="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm">
+        <div class="mt-6 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm">
             <ul class="list-disc list-inside space-y-1">
                 @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>

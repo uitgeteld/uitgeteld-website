@@ -1,6 +1,6 @@
 <x-layout>
 
-    <div class="min-h-screen bg-white flex items-center justify-center px-4">
+    <div class="min-h-screen flex items-center justify-center px-4">
         <div class="w-full max-w-md">
             <div class="mb-8">
                 <h1 class="text-3xl font-light text-gray-900">Sign in</h1>
