@@ -6,7 +6,7 @@
                 <h1 class="text-3xl font-light text-gray-900">Sign in</h1>
             </div>
 
-            <form action="{{ url('/login') }}" method="POST" class="space-y-5">
+            <form action="{{ route('login') }}" method="POST" class="space-y-5">
                 @csrf
 
                 <div>
@@ -41,4 +41,4 @@
         </div>
     </div>
 
-</x-layout>
+</x-layout>W
