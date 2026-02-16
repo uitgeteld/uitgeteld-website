@@ -150,8 +150,8 @@ return [
         Features::updatePasswords(),
         Features::twoFactorAuthentication([
             'confirm' => true,
-            'confirmPassword' => true,  // Re-enabled - password confirmation required for security
-            // 'window' => 0,
+            'confirmPassword' => true,
+            'window' => 0
         ]),
     ],
 
