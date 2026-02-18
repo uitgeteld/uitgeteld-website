@@ -8,6 +8,9 @@
     <link rel="icon" href="{{ asset('favicon.ico') }}">
     @vite('resources/css/app.css')
 </head>
+<style>
+    *, body { font-family: 'JetBrains Mono', monospace; }
+</style>
 
 <body class="flex bg-slate-100">
     @php
