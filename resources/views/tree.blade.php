@@ -7,6 +7,8 @@
     <title>uitgeteld - ov</title>
     <link rel="icon" href="{{ asset('favicon.ico') }}">
     @vite('resources/css/app.css')
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <script>
         (function() {
             const stored = localStorage.getItem('theme');
@@ -21,8 +23,6 @@
         body {
             font-family: 'JetBrains Mono', monospace;
         }
-
-        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap');
 
         @keyframes blink {
 
@@ -77,47 +77,14 @@
             animation-delay: 0.33s;
         }
 
-        .link-row:hover .arrow {
-            transform: translateX(3px);
-        }
 
-        .arrow {
-            transition: transform 0.15s ease;
-            display: inline-block;
-        }
-
-        body {
-            height: 100dvh;
-            overflow: hidden;
-            padding-bottom: env(safe-area-inset-bottom);
-            padding-left: env(safe-area-inset-left);
-            padding-right: env(safe-area-inset-right);
-        }
-
-        @supports not (height: 100dvh) {
-            body {
-                height: 100vh;
-            }
-        }
-
-        #theme-toggle {
-            position: fixed;
-            top: 1rem;
-            right: 1rem;
-            background: transparent;
-            font-size: 0.65rem;
-            padding: 0.25rem 0.5rem;
-            cursor: pointer;
-            border-radius: 2px;
-            transition: border-color 0.15s, color 0.15s;
-        }
     </style>
 </head>
 
-<body class="bg-zinc-100 dark:bg-zinc-950 w-screen flex items-center justify-center transition-colors duration-200">
+<body class="bg-zinc-100 dark:bg-zinc-950 w-screen flex items-center justify-center transition-colors duration-200 h-dvh overflow-hidden pb-[env(safe-area-inset-bottom)] pl-[env(safe-area-inset-left)] pr-[env(safe-area-inset-right)]">
 
     <button id="theme-toggle"
-        class="border border-zinc-300 text-zinc-400 hover:border-green-500 hover:text-green-500 dark:border-zinc-600 dark:text-zinc-500 dark:hover:border-green-400 dark:hover:text-green-400"
+        class="fixed top-4 right-4 bg-transparent text-[0.65rem] px-2 py-1 cursor-pointer rounded-xs transition-[border-color,color] duration-150 border border-zinc-300 text-zinc-400 hover:border-green-500 hover:text-green-500 dark:border-zinc-600 dark:text-zinc-500 dark:hover:border-green-400 dark:hover:text-green-400"
         onclick="toggleTheme()" title="Toggle theme">[dark]</button>
 
     <div class="w-full max-w-sm px-6 flex flex-col gap-5 lg:gap-6">
@@ -145,7 +112,7 @@
                     <span class="text-green-500 text-sm md:text-xs w-5 md:w-4">01</span>
                     <span class="text-zinc-700 dark:text-zinc-200 text-base md:text-sm lg:text-xs">website</span>
                 </div>
-                <span class="arrow text-zinc-400 dark:text-zinc-600 group-hover:text-green-500 dark:group-hover:text-green-400 text-base md:text-sm lg:text-xs">&#8594;</span>
+                <span class="inline-block transition-transform duration-150 text-zinc-400 dark:text-zinc-600 group-hover:text-green-500 dark:group-hover:text-green-400 group-hover:translate-x-[3px] text-base md:text-sm lg:text-xs">&#8594;</span>
             </a>
 
             <a href="{{ url('/projects') }}" class="fade link-row group flex items-center justify-between px-4 lg:px-3 py-4 md:py-3 lg:py-2.5 rounded-sm bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-green-500/50 hover:bg-zinc-50 dark:hover:bg-zinc-800/60 active:bg-zinc-100 dark:active:bg-zinc-700 transition-all duration-150 no-underline">
@@ -153,7 +120,7 @@
                     <span class="text-green-500 text-sm md:text-xs w-5 md:w-4">02</span>
                     <span class="text-zinc-700 dark:text-zinc-200 text-base md:text-sm lg:text-xs">projects</span>
                 </div>
-                <span class="arrow text-zinc-400 dark:text-zinc-600 group-hover:text-green-500 dark:group-hover:text-green-400 text-base md:text-sm lg:text-xs">&#8594;</span>
+                <span class="inline-block transition-transform duration-150 text-zinc-400 dark:text-zinc-600 group-hover:text-green-500 dark:group-hover:text-green-400 group-hover:translate-x-[3px] text-base md:text-sm lg:text-xs">&#8594;</span>
             </a>
 
             <a href="https://github.com/uitgeteld" target="_blank" class="fade link-row group flex items-center justify-between px-4 lg:px-3 py-4 md:py-3 lg:py-2.5 rounded-sm bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-blue-500/50 hover:bg-zinc-50 dark:hover:bg-zinc-800/60 active:bg-zinc-100 dark:active:bg-zinc-700 transition-all duration-150 no-underline">
@@ -161,7 +128,7 @@
                     <span class="text-blue-500 dark:text-blue-400 text-sm md:text-xs w-5 md:w-4">03</span>
                     <span class="text-zinc-700 dark:text-zinc-200 text-base md:text-sm lg:text-xs">github</span>
                 </div>
-                <span class="arrow text-zinc-400 dark:text-zinc-600 group-hover:text-blue-500 dark:group-hover:text-blue-400 text-base md:text-sm lg:text-xs">&#8599;</span>
+                <span class="inline-block transition-transform duration-150 text-zinc-400 dark:text-zinc-600 group-hover:text-blue-500 dark:group-hover:text-blue-400 group-hover:translate-x-[3px] text-base md:text-sm lg:text-xs">&#8599;</span>
             </a>
 
             <a href="https://open.spotify.com/artist/0Z3N1r82b0yIPk0NV0GgMk?si=4459cd89b27f4fd9" target="_blank" class="fade link-row group flex items-center justify-between px-4 lg:px-3 py-4 md:py-3 lg:py-2.5 rounded-sm bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-green-400/50 hover:bg-zinc-50 dark:hover:bg-zinc-800/60 active:bg-zinc-100 dark:active:bg-zinc-700 transition-all duration-150 no-underline">
@@ -169,7 +136,7 @@
                     <span class="text-green-500 dark:text-green-400 text-sm md:text-xs w-5 md:w-4">04</span>
                     <span class="text-zinc-700 dark:text-zinc-200 text-base md:text-sm lg:text-xs">spotify</span>
                 </div>
-                <span class="arrow text-zinc-400 dark:text-zinc-600 group-hover:text-green-500 dark:group-hover:text-green-400 text-base md:text-sm lg:text-xs">&#8599;</span>
+                <span class="inline-block transition-transform duration-150 text-zinc-400 dark:text-zinc-600 group-hover:text-green-500 dark:group-hover:text-green-400 group-hover:translate-x-[3px] text-base md:text-sm lg:text-xs">&#8599;</span>
             </a>
 
             <a href="https://soundcloud.com/byeov" target="_blank" class="fade link-row group flex items-center justify-between px-4 lg:px-3 py-4 md:py-3 lg:py-2.5 rounded-sm bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-orange-500/50 hover:bg-zinc-50 dark:hover:bg-zinc-800/60 active:bg-zinc-100 dark:active:bg-zinc-700 transition-all duration-150 no-underline">
@@ -177,7 +144,7 @@
                     <span class="text-orange-500 dark:text-orange-400 text-sm md:text-xs w-5 md:w-4">05</span>
                     <span class="text-zinc-700 dark:text-zinc-200 text-base md:text-sm lg:text-xs">soundcloud</span>
                 </div>
-                <span class="arrow text-zinc-400 dark:text-zinc-600 group-hover:text-orange-500 dark:group-hover:text-orange-400 text-base md:text-sm lg:text-xs">&#8599;</span>
+                <span class="inline-block transition-transform duration-150 text-zinc-400 dark:text-zinc-600 group-hover:text-orange-500 dark:group-hover:text-orange-400 group-hover:translate-x-[3px] text-base md:text-sm lg:text-xs">&#8599;</span>
             </a>
 
         </div>

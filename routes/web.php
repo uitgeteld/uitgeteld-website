@@ -8,13 +8,15 @@ use App\Http\Controllers\UserController;
 
 use App\Http\Middleware\IsAdmin;
 
+Route::domain('tree.' . parse_url(config('app.url'), PHP_URL_HOST))->group(function () {
+    Route::get('/', function () {
+        return view('tree');
+    })->name('tree');
+});
 
 Route::get('/', function () {
     return view('home');
 })->name('home');
-Route::get('/tree', function () {
-    return view('tree');
-})->name('tree');
 Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
 
 Route::group(['middleware' => 'auth'], function () {

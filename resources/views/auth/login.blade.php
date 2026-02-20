@@ -41,4 +41,4 @@
         </div>
     </div>
 
-</x-layout>W
+</x-layout>
