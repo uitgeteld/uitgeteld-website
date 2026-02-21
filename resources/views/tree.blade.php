@@ -107,7 +107,7 @@
 
         <div class="flex flex-col gap-3 md:gap-2.5 lg:gap-2">
 
-            <a href="{{ url('/') }}" class="fade link-row group flex items-center justify-between px-4 lg:px-3 py-4 md:py-3 lg:py-2.5 rounded-sm bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-green-500/50 hover:bg-zinc-50 dark:hover:bg-zinc-800/60 active:bg-zinc-100 dark:active:bg-zinc-700 transition-all duration-150 no-underline">
+            <a href="{{ config('app.url') }}" class="fade link-row group flex items-center justify-between px-4 lg:px-3 py-4 md:py-3 lg:py-2.5 rounded-sm bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-green-500/50 hover:bg-zinc-50 dark:hover:bg-zinc-800/60 active:bg-zinc-100 dark:active:bg-zinc-700 transition-all duration-150 no-underline">
                 <div class="flex items-center gap-4 md:gap-3">
                     <span class="text-green-500 text-sm md:text-xs w-5 md:w-4">01</span>
                     <span class="text-zinc-700 dark:text-zinc-200 text-base md:text-sm lg:text-xs">website</span>
@@ -115,7 +115,7 @@
                 <span class="inline-block transition-transform duration-150 text-zinc-400 dark:text-zinc-600 group-hover:text-green-500 dark:group-hover:text-green-400 group-hover:translate-x-[3px] text-base md:text-sm lg:text-xs">&#8594;</span>
             </a>
 
-            <a href="{{ url('/projects') }}" class="fade link-row group flex items-center justify-between px-4 lg:px-3 py-4 md:py-3 lg:py-2.5 rounded-sm bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-green-500/50 hover:bg-zinc-50 dark:hover:bg-zinc-800/60 active:bg-zinc-100 dark:active:bg-zinc-700 transition-all duration-150 no-underline">
+            <a href="{{ config('app.url') }}/projects" class="fade link-row group flex items-center justify-between px-4 lg:px-3 py-4 md:py-3 lg:py-2.5 rounded-sm bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-green-500/50 hover:bg-zinc-50 dark:hover:bg-zinc-800/60 active:bg-zinc-100 dark:active:bg-zinc-700 transition-all duration-150 no-underline">
                 <div class="flex items-center gap-4 md:gap-3">
                     <span class="text-green-500 text-sm md:text-xs w-5 md:w-4">02</span>
                     <span class="text-zinc-700 dark:text-zinc-200 text-base md:text-sm lg:text-xs">projects</span>
