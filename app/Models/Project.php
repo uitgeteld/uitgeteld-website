@@ -15,6 +15,7 @@ class Project extends Model
         'name',
         'description',
         'github_url',
+        'website_url',
         'status',
         'user_id',
     ];

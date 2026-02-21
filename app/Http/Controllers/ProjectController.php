@@ -18,6 +18,15 @@ class ProjectController extends Controller
     }
 
     /**
+     * Display only the authenticated user's projects.
+     */
+    public function userProjects()
+    {
+        $projects = Project::where('user_id', Auth::id())->latest()->get();
+        return view('projects.user-projects', compact('projects'));
+    }
+
+    /**
      * Show the form for creating a new resource.
      */
     public function create()
@@ -33,7 +42,8 @@ class ProjectController extends Controller
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'description' => ['required', 'string'],
-            'github_url' => ['required', 'url'],
+            'github_url' => ['nullable', 'url'],
+            'website_url' => ['nullable', 'url'],
             'status' => ['required', 'in:planning,development,completed,on-hold,discontinued'],
         ]);
 
@@ -83,7 +93,8 @@ class ProjectController extends Controller
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'description' => ['required', 'string'],
-            'github_url' => ['required', 'url'],
+            'github_url' => ['nullable', 'url'],
+            'website_url' => ['nullable', 'url'],
             'status' => ['required', 'in:planning,development,completed,on-hold,discontinued'],
         ]);
 
@@ -105,6 +116,6 @@ class ProjectController extends Controller
 
         $project->delete();
 
-        return redirect()->route('projects.index');
+        return redirect()->route('projectss.user-projects');
     }
 }
