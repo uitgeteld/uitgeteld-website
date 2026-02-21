@@ -1,7 +1,11 @@
 <x-layout :header="true" :footer="false">
     <x-header type="sidebar">
         <a href="{{ route('home') }}" class="block px-3 py-2 text-gray-600 font-medium transition-all duration-300 hover:text-black hover:translate-x-1">Home</a>
-        <a href="{{ route('dashboard') }}" class="block px-3 py-2 text-gray-600 font-medium transition-all duration-300 hover:text-black hover:translate-x-1">Dashboard</a>
+        <a href="{{ route('projects.user') }}" class="block px-3 py-2 text-gray-600 font-medium transition-all duration-300 hover:text-black hover:translate-x-1">Projects</a>
+        @if(Auth::user() && Auth::user()->is_admin)
+        <a href="{{ route('users.index') }}" class="block px-3 py-2 text-gray-600 font-medium transition-all duration-300 hover:text-black hover:translate-x-1">Users</a>
+        @endif
+        <a href="{{ route('profile.show') }}" class="block px-3 py-2 text-gray-600 font-medium transition-all duration-300 hover:text-black hover:translate-x-1">Profile</a>
     </x-header>
 
     <div class="mb-6">
@@ -10,10 +14,10 @@
     <hr class="border-gray-300 mb-6">
 
     <div class="max-w-2xl mx-auto px-4 py-4 space-y-6">
-        
+
         <div class="bg-white p-6 rounded-lg border border-gray-200">
             <h2 class="text-lg font-semibold text-gray-900 mb-4">Profile Information</h2>
-            
+
             <form action="{{ url('/user/profile-information') }}" method="POST" class="space-y-4">
                 @csrf
                 @method('PUT')
@@ -64,18 +68,18 @@
             <p class="text-sm text-gray-600 mb-4">
                 Add additional security to your account using two-factor authentication.
             </p>
-            
+
             @if($user->two_factor_secret)
             <div class="flex items-center gap-3">
                 <span class="text-sm text-green-600 font-medium">✓ Enabled</span>
-                <a href="{{ route('profile.two-factor') }}" 
-                   class="px-4 py-2 bg-gray-900 text-white text-sm rounded-lg hover:bg-gray-800 transition-colors">
+                <a href="{{ route('profile.two-factor') }}"
+                    class="px-4 py-2 bg-gray-900 text-white text-sm rounded-lg hover:bg-gray-800 transition-colors">
                     Manage 2FA
                 </a>
             </div>
             @else
-            <a href="{{ route('profile.two-factor') }}" 
-               class="inline-block px-4 py-2 bg-gray-900 text-white text-sm rounded-lg hover:bg-gray-800 transition-colors">
+            <a href="{{ route('profile.two-factor') }}"
+                class="inline-block px-4 py-2 bg-gray-900 text-white text-sm rounded-lg hover:bg-gray-800 transition-colors">
                 Enable Two-Factor Authentication
             </a>
             @endif
@@ -83,7 +87,7 @@
 
         <div class="bg-white p-6 rounded-lg border border-gray-200">
             <h2 class="text-lg font-semibold text-gray-900 mb-4">Change Password</h2>
-            
+
             <form action="{{ url('/user/password') }}" method="POST" class="space-y-4">
                 @csrf
                 @method('PUT')

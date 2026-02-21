@@ -17,7 +17,7 @@ $type = $type ?? false;
             @if(Auth::check())
             <form action="{{ route('logout') }}" method="POST" class="w-full flex justify-center mt-2">
                 @csrf
-                <button type="submit" class="rounded-full px-4 py-2 bg-gray-900 text-white text-sm font-medium shadow hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-700 focus:ring-offset-2 transition cursor-pointer">Logout</button>
+                <button type="submit" class="rounded-full px-4 py-2 bg-gray-900 text-white text-sm font-medium shadow hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-700 focus:ring-offset-2 transition duration-100 cursor-pointer">Logout</button>
             </form>
             @endif
         </ul>
@@ -31,18 +31,18 @@ $type = $type ?? false;
     <div class="p-2 border-t border-gray-200">
         <form action="{{ route('logout') }}" method="POST" class="w-full">
             @csrf
-            <button type="submit" class="w-full bg-gray-900 text-white py-2 px-2 text-xs hover:bg-gray-800 transition cursor-pointer">Logout</button>
+            <button type="submit" class="w-full bg-gray-900 text-white py-2 px-2 text-xs hover:bg-gray-800 transition duration-100 cursor-pointer">Logout</button>
         </form>
     </div>
 </header>
 
 <header class="fixed top-0 left-0 w-full h-16 bg-white border-b border-gray-200 flex items-center justify-between z-40 px-4 md:hidden">
-    <div class="flex-1 flex items-center overflow-hidden">
+    <div class="flex-1 flex items-center overflow-x-auto no-scrollbar">
         {{ $slot }}
     </div>
     <form action="{{ route('logout') }}" method="POST" class="ml-4">
         @csrf
-        <button type="submit" class="rounded-full px-4 py-2 bg-gray-900 text-white text-sm font-medium shadow hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-700 focus:ring-offset-2 transition">Logout</button>
+        <button type="submit" class="rounded-full px-4 py-2 bg-gray-900 text-white text-sm font-medium shadow hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-700 focus:ring-offset-2 transition duration-100">Logout</button>
     </form>
 </header>
 @endif
@@ -53,4 +53,6 @@ $type = $type ?? false;
         margin-left: 14px;
         margin-bottom: 2px;
     }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 </style>

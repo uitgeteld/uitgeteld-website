@@ -19,12 +19,12 @@
     $footer = $footer ?? false;
     @endphp
 
-    <main class="{{ $header ? 'md:ml-36 flex-1 w-full mt-16 md:mt-0 p-8' : 'w-full' }} {{ $overflow ? 'overflow-hidden h-screen' : '' }}">
+    <main class="{{ $header ? 'md:ml-36 flex-1 w-full mt-16 p-5 md:mt-0 md:p-8' : 'w-full' }} {{ $overflow ? 'overflow-hidden h-screen' : '' }}">
         {{ $slot }}
     </main>
 
     @if ($footer)
-    <div class="fixed bottom-2 {{ $header ? 'md:left-36 left-0 right-0' : 'left-0 right-0' }} z-50">
+    <div class="fixed bottom-0 {{ $header ? 'md:left-36 left-0 right-0' : 'left-0 right-0' }} z-50">
         <x-footer />
     </div>
     @endif
