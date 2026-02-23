@@ -58,11 +58,7 @@ class ProjectController extends Controller
      */
     public function show(string $id)
     {
-        $project = Project::with(['user', 'comments' => function ($query) {
-            $query->with('user')->latest();
-        }])->findOrFail($id);
-
-        return view('projects.show', compact('project'));
+        
     }
 
     /**
