@@ -58,7 +58,6 @@ class ProjectController extends Controller
      */
     public function show(string $id)
     {
-        
     }
 
     /**
@@ -112,6 +111,6 @@ class ProjectController extends Controller
 
         $project->delete();
 
-        return redirect()->route('projectss.user-projects');
+        return redirect()->route('projects.user');
     }
 }
