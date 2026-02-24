@@ -42,10 +42,10 @@
                 </div>
 
                 <div class="flex gap-3 pt-2">
-                    <button type="submit" class="px-6 py-2 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition-colors">
+                    <button type="submit" class="px-6 py-2 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition-colors cursor-pointer">
                         Update Profile
                     </button>
-                    <a href="{{ route('users.index') }}" class="px-6 py-2 bg-gray-200 text-gray-700 font-medium rounded-lg hover:bg-gray-300 transition-colors">
+                    <a href="{{ route('users.index') }}" class="px-6 py-2 bg-gray-200 text-gray-700 font-medium rounded-lg hover:bg-gray-300 transition-colors cursor-pointer">
                         Cancel
                     </a>
                 </div>
@@ -106,7 +106,7 @@
                     <p class="mt-1 text-sm text-gray-500">Enter a new password (minimum 6 characters)</p>
                 </div>
 
-                <button type="submit" class="px-6 py-2 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition-colors">
+                <button type="submit" class="px-6 py-2 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition-colors cursor-pointer">
                     Update Password
                 </button>
             </form>

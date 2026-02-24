@@ -24,7 +24,7 @@
 
             <form action="{{ url('/user/two-factor-authentication') }}" method="POST">
                 @csrf
-                <button type="submit" class="px-6 py-2 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition-colors">
+                <button type="submit" class="px-6 py-2 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition-colors cursor-pointer">
                     Enable
                 </button>
             </form>
@@ -62,7 +62,7 @@
                             class="w-full max-w-xs px-4 py-2 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:border-gray-400">
                     </div>
 
-                    <button type="submit" class="px-6 py-2 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition-colors">
+                    <button type="submit" class="px-6 py-2 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition-colors cursor-pointer">
                         Confirm Setup
                     </button>
                 </form>
@@ -95,7 +95,7 @@
                         showRecoveryCodes = true;
                     })
                 "
-                    class="px-6 py-2 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition-colors">
+                    class="px-6 py-2 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition-colors cursor-pointer">
                     Show Recovery Codes
                 </button>
 
@@ -110,7 +110,7 @@
 
                 <form action="{{ url('/user/two-factor-recovery-codes') }}" method="POST" class="mt-4">
                     @csrf
-                    <button type="submit" class="px-6 py-2 bg-white text-gray-700 font-medium rounded-lg border border-gray-300 hover:bg-gray-50 transition-colors">
+                    <button type="submit" class="px-6 py-2 bg-white text-gray-700 font-medium rounded-lg border border-gray-300 hover:bg-gray-50 transition-colors cursor-pointer">
                         Regenerate Recovery Codes
                     </button>
                 </form>
@@ -125,7 +125,7 @@
                 <form action="{{ url('/user/two-factor-authentication') }}" method="POST" onsubmit="return confirm('Are you sure you want to disable two-factor authentication?');">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="px-6 py-2 bg-red-600 text-white font-medium rounded-lg hover:bg-red-700 transition-colors">
+                    <button type="submit" class="px-6 py-2 bg-red-600 text-white font-medium rounded-lg hover:bg-red-700 transition-colors cursor-pointer">
                         Disable
                     </button>
                 </form>

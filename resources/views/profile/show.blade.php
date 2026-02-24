@@ -41,7 +41,7 @@
                     </span>
                 </div>
 
-                <button type="submit" class="px-6 py-2 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition-colors">
+                <button type="submit" class="px-6 py-2 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition-colors cursor-pointer">
                     Update Profile
                 </button>
             </form>
@@ -73,13 +73,13 @@
             <div class="flex items-center gap-3">
                 <span class="text-sm text-green-600 font-medium">✓ Enabled</span>
                 <a href="{{ route('profile.two-factor') }}"
-                    class="px-4 py-2 bg-gray-900 text-white text-sm rounded-lg hover:bg-gray-800 transition-colors">
+                    class="px-4 py-2 bg-gray-900 text-white text-sm rounded-lg hover:bg-gray-800 transition-colors cursor-pointer">
                     Manage 2FA
                 </a>
             </div>
             @else
             <a href="{{ route('profile.two-factor') }}"
-                class="inline-block px-4 py-2 bg-gray-900 text-white text-sm rounded-lg hover:bg-gray-800 transition-colors">
+                class="inline-block px-4 py-2 bg-gray-900 text-white text-sm rounded-lg hover:bg-gray-800 transition-colors cursor-pointer">
                 Enable Two-Factor Authentication
             </a>
             @endif
@@ -95,11 +95,11 @@
             <div class="flex items-center gap-3">
                 <span class="text-sm text-green-600 font-medium">✓ Activated</span>
                 <a href="{{ route('tree.edit') }}"
-                    class="px-4 py-2 bg-gray-900 text-white text-sm rounded-lg hover:bg-gray-800 transition-colors">
+                    class="px-4 py-2 bg-gray-900 text-white text-sm rounded-lg hover:bg-gray-800 transition-colors cursor-pointer">
                     Manage Links
                 </a>
                 <a href="{{ route('tree.show', $user->name) }}" target="_blank"
-                    class="px-4 py-2 bg-gray-900 text-white text-sm rounded-lg hover:bg-gray-800  transition-colors">
+                    class="px-4 py-2 bg-gray-900 text-white text-sm rounded-lg hover:bg-gray-800  transition-colors cursor-pointer">
                     Visit &#8599;
                 </a>
             </div>
@@ -107,7 +107,7 @@
             <form action="{{ route('tree.activate') }}" method="POST" class="inline">
                 @csrf
                 <button type="submit"
-                    class="px-4 py-2 bg-gray-900 text-white text-sm rounded-lg hover:bg-gray-800 transition-colors">
+                    class="px-4 py-2 bg-gray-900 text-white text-sm rounded-lg hover:bg-gray-800 transition-colors cursor-pointer">
                     Activate Tree Link
                 </button>
             </form>
@@ -139,7 +139,7 @@
                         class="w-full px-4 py-2 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:border-gray-400">
                 </div>
 
-                <button type="submit" class="px-6 py-2 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition-colors">
+                <button type="submit" class="px-6 py-2 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition-colors cursor-pointer">
                     Update Password
                 </button>
             </form>

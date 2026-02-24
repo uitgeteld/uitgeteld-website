@@ -60,7 +60,7 @@
 
                 <div>
                     <label for="status" class="block text-sm font-medium text-gray-700 mb-2">Status</label>
-                    <select name="status" id="status" class="w-full px-4 py-2 border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:border-gray-400 bg-white">
+                    <select name="status" id="status" class="w-full px-4 py-2 border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:border-gray-400 bg-white cursor-pointer">
                         <option value="planning" {{ old('status', 'planning') === 'planning' ? 'selected' : '' }}>Planning</option>
                         <option value="development" {{ old('status') === 'development' ? 'selected' : '' }}>Development</option>
                         <option value="completed" {{ old('status') === 'completed' ? 'selected' : '' }}>Completed</option>
@@ -83,10 +83,10 @@
                 @endif
 
                 <div class="flex items-center gap-3 pt-2">
-                    <button type="submit" class="px-6 py-2 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition-colors">
+                    <button type="submit" class="px-6 py-2 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition-colors cursor-pointer">
                         Upload
                     </button>
-                    <a href="{{ route('projects.index') }}" class="px-6 py-2 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors">
+                    <a href="{{ route('projects.index') }}" class="px-6 py-2 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors cursor-pointer">
                         Cancel
                     </a>
                 </div>

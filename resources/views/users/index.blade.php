@@ -10,7 +10,7 @@
 
     <div class="mb-6 flex items-center justify-between">
         <h1 class="text-2xl font-bold text-gray-900">Users</h1>
-        <a href="{{ route('users.create') }}" class="px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors">
+        <a href="{{ route('users.create') }}" class="px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors cursor-pointer">
             Create User
         </a>
     </div>
@@ -22,7 +22,7 @@
             <h2 class="text-lg font-semibold {{ $user->is_admin ? "text-red-600" : "text-gray-800"}}">{{ $user->name }}</h2>
             <p class="text-gray-600">{{ $user->email }}</p>
             <div class="mt-4 flex gap-2 items-center">
-                <a href="{{ route('users.edit', $user) }}" class="flex items-center justify-center px-2 py-1 text-xs rounded bg-gray-900 text-white  hover:bg-gray-800 transition">Edit</a>
+                <a href="{{ route('users.edit', $user) }}" class="flex items-center justify-center px-2 py-1 text-xs rounded bg-gray-900 text-white  hover:bg-gray-800 transition cursor-pointer">Edit</a>
                 <form action="{{ route('users.destroy', $user) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this user?');" class="inline-block">
                     @csrf
                     @method('DELETE')

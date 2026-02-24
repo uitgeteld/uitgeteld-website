@@ -22,7 +22,7 @@
                 </div>
 
                 <div class="flex items-center">
-                    <input id="remember" name="remember" type="checkbox" class="w-4 h-4 border border-gray-300">
+                    <input id="remember" name="remember" type="checkbox" class="w-4 h-4 border border-gray-300 cursor-pointer">
                     <label for="remember" class="ml-2 text-sm text-gray-600">Remember me</label>
                 </div>
 

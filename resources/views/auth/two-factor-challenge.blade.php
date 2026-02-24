@@ -36,7 +36,7 @@
                 </form>
 
                 <div class="mt-6 text-center">
-                    <button @click="recovery = !recovery" type="button" class="text-sm text-gray-600 hover:text-gray-900">
+                    <button @click="recovery = !recovery" type="button" class="text-sm text-gray-600 hover:text-gray-900 cursor-pointer">
                         <span x-show="!recovery">Use a recovery code</span>
                         <span x-show="recovery" x-cloak>Use an authentication code</span>
                     </button>
