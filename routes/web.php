@@ -2,8 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\LinksController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\TreesController;
 use App\Http\Controllers\UserController;
 
 use App\Http\Middleware\IsAdmin;
@@ -30,6 +32,14 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
     Route::get('/profile/two-factor', [ProfileController::class, 'showTwoFactor'])->name('profile.two-factor');
+
+    Route::post('/tree/activate', [TreesController::class, 'activate'])->name('tree.activate');
+    Route::post('/tree/deactivate', [TreesController::class, 'deactivate'])->name('tree.deactivate');
+    Route::put('/tree', [TreesController::class, 'update'])->name('tree.update');
+    Route::get('/tree', [TreesController::class, 'edit'])->name('tree.edit');
+
+    Route::resource('links', LinksController::class)->only(['store', 'update', 'destroy']);
+    Route::post('/links/reorder', [LinksController::class, 'reorder'])->name('links.reorder');
 });
 
 Route::get('/projects/{id}', [ProjectController::class, 'show'])->name('projects.show');
@@ -37,3 +47,5 @@ Route::get('/projects/{id}', [ProjectController::class, 'show'])->name('projects
 Route::group(['middleware' => ['auth', IsAdmin::class]], function () {
     Route::resource('users', UserController::class);
 });
+
+Route::get('/{username}', [TreesController::class, 'show'])->name('tree.show');

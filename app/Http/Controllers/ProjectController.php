@@ -58,6 +58,7 @@ class ProjectController extends Controller
      */
     public function show(string $id)
     {
+        //
     }
 
     /**
@@ -67,9 +68,9 @@ class ProjectController extends Controller
     {
         $project = Project::findOrFail($id);
 
-        if(Auth::id() !== $project->user_id && !Auth::user()?->is_admin) {
+        if (Auth::id() !== $project->user_id && !Auth::user()?->is_admin) {
             abort(403);
-        }   
+        }
 
         return view('projects.edit', compact('project'));
     }
@@ -81,9 +82,9 @@ class ProjectController extends Controller
     {
         $project = Project::findOrFail($id);
 
-        if(Auth::id() !== $project->user_id && !Auth::user()?->is_admin) {
+        if (Auth::id() !== $project->user_id && !Auth::user()?->is_admin) {
             abort(403);
-        }   
+        }
 
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
@@ -105,9 +106,9 @@ class ProjectController extends Controller
     {
         $project = Project::findOrFail($id);
 
-        if(Auth::id() !== $project->user_id && !Auth::user()?->is_admin) {
+        if (Auth::id() !== $project->user_id && !Auth::user()?->is_admin) {
             abort(403);
-        }   
+        }
 
         $project->delete();
 
