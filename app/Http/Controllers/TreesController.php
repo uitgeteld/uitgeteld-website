@@ -93,6 +93,8 @@ class TreesController extends Controller
 
         $validated = $request->validate([
             'description' => 'nullable|string|max:255',
+            'style'       => 'nullable|in:coding,simple',
+            'theme'       => 'nullable|in:0,1,2',
         ]);
 
         /** @var Tree $tree */

@@ -14,6 +14,8 @@ class Tree extends Model
     protected $fillable = [
         'user_id',
         'description',
+        'style',
+        'theme',
         'activated'
     ];
 

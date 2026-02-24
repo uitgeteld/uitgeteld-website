@@ -53,14 +53,33 @@
                         class="w-full px-4 py-2 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:border-gray-400">
                 </div>
 
+                <div>
+                    <label for="style" class="block text-sm font-medium text-gray-700 mb-2">Style</label>
+                    <select name="style" id="style"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:border-gray-400 cursor-pointer">
+                        <option value="coding" {{ old('style', $tree->style) === 'coding' ? 'selected' : '' }}>Coding</option>
+                        <option value="simple" {{ old('style', $tree->style) === 'simple' ? 'selected' : '' }}>Simple</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="theme" class="block text-sm font-medium text-gray-700 mb-2">Theme</label>
+                    <select name="theme" id="theme"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:border-gray-400 cursor-pointer">
+                        <option value="0" {{ (int) old('theme', $tree->theme) === 0 ? 'selected' : '' }}>Switch (let visitor choose)</option>
+                        <option value="1" {{ (int) old('theme', $tree->theme) === 1 ? 'selected' : '' }}>Always Light</option>
+                        <option value="2" {{ (int) old('theme', $tree->theme) === 2 ? 'selected' : '' }}>Always Dark</option>
+                    </select>
+                </div>
+
                 <div class="flex items-center justify-between">
-                    <button type="submit" class="px-6 py-2 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition-colors">
+                    <button type="submit" class="px-6 py-2 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition-colors cursor-pointer">
                         Save
                     </button>
 
                     <form action="{{ route('tree.deactivate') }}" method="POST">
                         @csrf
-                        <button type="submit" class="px-4 py-2 bg-red-600 text-white text-sm rounded-lg hover:bg-red-700 transition-colors">
+                        <button type="submit" class="px-4 py-2 bg-red-600 text-white text-sm rounded-lg hover:bg-red-700 transition-colors cursor-pointer">
                             Deactivate Tree
                         </button>
                     </form>
@@ -105,7 +124,7 @@
                 </div>
                 @endif
 
-                <button type="submit" class="px-6 py-2 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition-colors">
+                <button type="submit" class="px-6 py-2 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition-colors cursor-pointer">
                     Add Link
                 </button>
             </form>
@@ -136,13 +155,13 @@
                         </div>
                         <div class="flex gap-2 shrink-0">
                             <button type="button" onclick="toggleEdit({{ $link->id }})"
-                                class="px-3 py-1 text-sm text-blue-600 border border-blue-200 rounded-lg hover:bg-blue-50 transition-colors">
+                                class="px-3 py-1 text-sm text-blue-600 border border-blue-200 rounded-lg hover:bg-blue-50 transition-colors cursor-pointer">
                                 Edit
                             </button>
                             <form action="{{ route('links.destroy', $link->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="px-3 py-1 text-sm text-red-600 border border-red-200 rounded-lg hover:bg-red-50 transition-colors">
+                                <button type="submit" class="px-3 py-1 text-sm text-red-600 border border-red-200 rounded-lg hover:bg-red-50 transition-colors cursor-pointer">
                                     Delete
                                 </button>
                             </form>
@@ -166,11 +185,11 @@
                                 class="h-9 w-12 rounded border border-gray-300 cursor-pointer shrink-0">
                         </div>
                         <div class="flex gap-2">
-                            <button type="submit" class="px-3 py-1 text-sm text-white bg-gray-900 rounded-lg hover:bg-gray-800 transition-colors">
+                            <button type="submit" class="px-3 py-1 text-sm text-white bg-gray-900 rounded-lg hover:bg-gray-800 transition-colors cursor-pointer">
                                 Save
                             </button>
                             <button type="button" onclick="toggleEdit({{ $link->id }})"
-                                class="px-3 py-1 text-sm text-gray-600 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
+                                class="px-3 py-1 text-sm text-gray-600 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer">
                                 Cancel
                             </button>
                         </div>
@@ -201,16 +220,16 @@
             animation: 150,
             onEnd() {
                 const order = [...el.querySelectorAll('li[data-id]')].map(li => li.dataset.id);
-                fetch('{{ route('links.reorder') }}', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                        },
-                        body: JSON.stringify({
-                            order
-                        }),
-                    });
+                fetch(`{{ route( 'links.reorder') }}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                    },
+                    body: JSON.stringify({
+                        order
+                    }),
+                });
             },
         });
     }

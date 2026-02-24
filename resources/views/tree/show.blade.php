@@ -10,38 +10,97 @@
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <script>
         (function() {
+            @if($tree->theme === 2)
+            document.documentElement.classList.add('dark');
+            @elseif($tree->theme === 1)
+            document.documentElement.classList.remove('dark');
+            @else
             const stored = localStorage.getItem('theme');
             const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
             if (stored === 'dark' || (!stored && prefersDark)) {
                 document.documentElement.classList.add('dark');
             }
+            @endif
         })();
     </script>
     <style>
-        *, body { font-family: 'JetBrains Mono', monospace; }
+        * {
+            font-family: 'JetBrains Mono', monospace;
+        }
 
-        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
-        .cursor::after { content: '_'; animation: blink 1.2s step-end infinite; }
+        @keyframes blink {
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .cursor::after {
+            content: '_';
+            animation: blink 1.2s step-end infinite;
+        }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(6px); }
-            to   { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(6px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        .fade { animation: fadeIn 0.35s ease both; }
-        .fade:nth-child(1) { animation-delay: 0.05s; }
-        .fade:nth-child(2) { animation-delay: 0.12s; }
-        .fade:nth-child(3) { animation-delay: 0.19s; }
-        .fade:nth-child(4) { animation-delay: 0.26s; }
-        .fade:nth-child(5) { animation-delay: 0.33s; }
-        .fade:nth-child(n+6) { animation-delay: 0.40s; }
+
+        .fade {
+            animation: fadeIn 0.35s ease both;
+        }
+
+        .fade:nth-child(1) {
+            animation-delay: 0.05s;
+        }
+
+        .fade:nth-child(2) {
+            animation-delay: 0.12s;
+        }
+
+        .fade:nth-child(3) {
+            animation-delay: 0.19s;
+        }
+
+        .fade:nth-child(4) {
+            animation-delay: 0.26s;
+        }
+
+        .fade:nth-child(5) {
+            animation-delay: 0.33s;
+        }
+
+        .fade:nth-child(n+6) {
+            animation-delay: 0.40s;
+        }
+
+        .link-row:hover {
+            border-color: color-mix(in srgb, var(--link-color) 50%, transparent);
+        }
+
+        .link-row:hover .arrow {
+            color: var(--link-color);
+        }
     </style>
 </head>
 
 <body class="bg-zinc-100 dark:bg-zinc-950 w-screen flex items-center justify-center transition-colors duration-200 min-h-dvh overflow-x-hidden pb-[env(safe-area-inset-bottom)] pl-[env(safe-area-inset-left)] pr-[env(safe-area-inset-right)]">
 
+    @if($tree->theme === 0)
     <button id="theme-toggle"
         class="fixed top-4 right-4 bg-transparent text-[0.65rem] px-2 py-1 cursor-pointer rounded-xs transition-[border-color,color] duration-150 border border-zinc-300 text-zinc-400 hover:border-green-500 hover:text-green-500 dark:border-zinc-600 dark:text-zinc-500 dark:hover:border-green-400 dark:hover:text-green-400"
         onclick="toggleTheme()" title="Toggle theme">[dark]</button>
+    @endif
 
     <div class="w-full max-w-sm px-6 py-12 flex flex-col gap-5 lg:gap-6">
 
@@ -72,7 +131,7 @@
                     <span class="text-sm md:text-xs w-5 md:w-4" style="color: {{ $link->color }}">{{ str_pad($index + 1, 2, '0', STR_PAD_LEFT) }}</span>
                     <span class="text-zinc-700 dark:text-zinc-200 text-base md:text-sm lg:text-xs">{{ $link->content }}</span>
                 </div>
-                <span class="inline-block transition-transform duration-150 text-zinc-400 dark:text-zinc-600 group-hover:translate-x-[3px] text-base md:text-sm lg:text-xs">&#8599;</span>
+                <span class="arrow inline-block transition-transform duration-150 text-zinc-400 dark:text-zinc-600 group-hover:translate-x-[3px] text-base md:text-sm lg:text-xs">&#8599;</span>
             </a>
             @endforeach
         </div>
@@ -85,6 +144,7 @@
     </div>
 
     <script>
+        @if($tree->theme === 0)
         const html = document.documentElement;
         const btn = document.getElementById('theme-toggle');
 
@@ -101,6 +161,7 @@
 
         applyTheme(localStorage.getItem('theme') ??
             (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+        @endif
     </script>
 
 </body>
