@@ -86,6 +86,35 @@
         </div>
 
         <div class="bg-white p-6 rounded-lg border border-gray-200">
+            <h2 class="text-lg font-semibold text-gray-900 mb-2">Tree Link Management</h2>
+            <p class="text-sm text-gray-600 mb-4">
+                Add your links to your custom link tree page. You can manage your links and customize the appearance of your link tree to share with others.
+            </p>
+
+            @if($user->tree && $user->tree->activated)
+            <div class="flex items-center gap-3">
+                <span class="text-sm text-green-600 font-medium">✓ Activated</span>
+                <a href="{{ route('tree.edit') }}"
+                    class="px-4 py-2 bg-gray-900 text-white text-sm rounded-lg hover:bg-gray-800 transition-colors">
+                    Manage Links
+                </a>
+                <a href="{{ route('tree.show', $user->name) }}" target="_blank"
+                    class="px-4 py-2 bg-gray-900 text-white text-sm rounded-lg hover:bg-gray-800  transition-colors">
+                    Visit &#8599;
+                </a>
+            </div>
+            @else
+            <form action="{{ route('tree.activate') }}" method="POST" class="inline">
+                @csrf
+                <button type="submit"
+                    class="px-4 py-2 bg-gray-900 text-white text-sm rounded-lg hover:bg-gray-800 transition-colors">
+                    Activate Tree Link
+                </button>
+            </form>
+            @endif
+        </div>
+
+        <div class="bg-white p-6 rounded-lg border border-gray-200">
             <h2 class="text-lg font-semibold text-gray-900 mb-4">Change Password</h2>
 
             <form action="{{ url('/user/password') }}" method="POST" class="space-y-4">
