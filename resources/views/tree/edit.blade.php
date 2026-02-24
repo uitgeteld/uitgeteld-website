@@ -1,15 +1,19 @@
-<x-layout :header="true" :footer="false">
+<x-layout :header="true" :footer="true">
     <x-header type="sidebar">
         <a href="{{ route('home') }}" class="block px-3 py-2 text-gray-600 font-medium transition-all duration-300 hover:text-black hover:translate-x-1">Home</a>
+        <a href="{{ route('projects.user') }}" class="block px-3 py-2 text-gray-600 font-medium transition-all duration-300 hover:text-black hover:translate-x-1">Projects</a>
+        @if(Auth::user() && Auth::user()->is_admin)
+        <a href="{{ route('users.index') }}" class="block px-3 py-2 text-gray-600 font-medium transition-all duration-300 hover:text-black hover:translate-x-1">Users</a>
+        @endif
         <a href="{{ route('profile.show') }}" class="block px-3 py-2 text-gray-600 font-medium transition-all duration-300 hover:text-black hover:translate-x-1">Profile</a>
     </x-header>
 
     <div class="mb-6">
-        <h1 class="text-2xl font-bold text-gray-900">Manage Link Tree</h1>
+        <h1 class="text-2xl font-bold text-gray-900">Manage Tree Link</h1>
     </div>
     <hr class="border-gray-300 mb-6">
 
-    <div class="max-w-2xl mx-auto px-4 py-4 space-y-6">
+    <div class="max-w-2xl mx-auto px-4 py-4 space-y-6 mb-10">
 
         @if(session('status') === 'link-added')
         <div class="p-4 bg-green-50 border border-green-200 rounded-lg text-green-700 text-sm">
@@ -120,7 +124,7 @@
                     <div class="link-display flex items-center gap-3 p-3">
                         <div class="drag-handle cursor-grab text-gray-300 hover:text-gray-500 shrink-0 px-1" title="Drag to reorder">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16" />
                             </svg>
                         </div>
                         <div class="flex items-center gap-3 min-w-0 flex-1">
@@ -198,13 +202,15 @@
             onEnd() {
                 const order = [...el.querySelectorAll('li[data-id]')].map(li => li.dataset.id);
                 fetch('{{ route('links.reorder') }}', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                    },
-                    body: JSON.stringify({ order }),
-                });
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                        },
+                        body: JSON.stringify({
+                            order
+                        }),
+                    });
             },
         });
     }
