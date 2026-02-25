@@ -10,33 +10,6 @@ use App\Models\Tree;
 
 class TreesController extends Controller
 {
-
-    public function activate()
-    {
-        /** @var User $user */
-        $user = Auth::user();
-        $tree = $user->tree;
-
-        if ($tree) {
-            $tree->update(['activated' => true]);
-        } else {
-            $tree = $user->tree()->create(['activated' => true]);
-        }
-
-        return redirect()->route('tree.edit')->with('status', 'tree-activated');
-    }
-
-    public function deactivate()
-    {
-        $tree = Auth::user()->tree;
-
-        if ($tree) {
-            $tree->update(['activated' => false]);
-        }
-
-        return redirect()->route('profile.show')->with('status', 'tree-deactivated');
-    }
-
     /**
      * Show the form for creating a new resource.
      */
@@ -109,5 +82,31 @@ class TreesController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function activate()
+    {
+        /** @var User $user */
+        $user = Auth::user();
+        $tree = $user->tree;
+
+        if ($tree) {
+            $tree->update(['activated' => true]);
+        } else {
+            $tree = $user->tree()->create(['activated' => true]);
+        }
+
+        return redirect()->route('tree.edit')->with('status', 'tree-activated');
+    }
+
+    public function deactivate()
+    {
+        $tree = Auth::user()->tree;
+
+        if ($tree) {
+            $tree->update(['activated' => false]);
+        }
+
+        return redirect()->route('profile.show')->with('status', 'tree-deactivated');
     }
 }

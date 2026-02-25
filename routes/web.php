@@ -10,12 +10,6 @@ use App\Http\Controllers\UserController;
 
 use App\Http\Middleware\IsAdmin;
 
-Route::domain('tree.' . parse_url(config('app.url'), PHP_URL_HOST))->group(function () {
-    Route::get('/', function () {
-        return view('tree');
-    })->name('tree');
-});
-
 Route::get('/', function () {
     return view('home');
 })->name('home');
