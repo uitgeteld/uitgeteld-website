@@ -13,6 +13,9 @@ use App\Http\Middleware\IsAdmin;
 Route::get('/', function () {
     return view('home');
 })->name('home');
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
 Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
 
 Route::group(['middleware' => 'auth'], function () {
