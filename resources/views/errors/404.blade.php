@@ -1,8 +1,5 @@
 <x-layout :footer="false" :overflow="true">
-    <x-header type="burger">
-        <a href="{{ route('dashboard') }}" class="text-gray-500 text-base no-underline transition-all duration-300 hover:text-black hover:translate-x-1 inline-block">Dashboard</a>
-        <a href="{{ route('projects.index') }}" class="text-gray-500 text-base no-underline transition-all duration-300 hover:text-black hover:translate-x-1 inline-block">Projects</a>
-    </x-header>
+    <x-header type="burger" />
 
     <div class="text-center animate-[fadeUp_1.2s_cubic-bezier(0.16,1,0.3,1)_both] flex flex-col items-center justify-center min-h-screen px-4">
         <div class="animate-[float_3s_ease-in-out_infinite]">

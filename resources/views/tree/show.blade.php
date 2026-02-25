@@ -10,9 +10,9 @@
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <script>
         (function() {
-            @if($tree->theme === 2)
+            @if($tree -> theme === 2)
             document.documentElement.classList.add('dark');
-            @elseif($tree->theme === 1)
+            @elseif($tree -> theme === 1)
             document.documentElement.classList.remove('dark');
             @else
             const stored = localStorage.getItem('theme');
@@ -29,6 +29,7 @@
         }
 
         @keyframes blink {
+
             0%,
             100% {
                 opacity: 1;
@@ -144,7 +145,7 @@
     </div>
 
     <script>
-        @if($tree->theme === 0)
+        @if($tree -> theme === 0)
         const html = document.documentElement;
         const btn = document.getElementById('theme-toggle');
 

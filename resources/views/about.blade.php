@@ -1,18 +1,16 @@
 <x-layout :footer="true">
-    <x-header type="burger">
-        <a href="{{ route('home') }}" class="text-gray-500 text-base no-underline transition-all duration-300 hover:text-black hover:translate-x-1 inline-block">Home</a>
-        <a href="{{ route('dashboard') }}" class="text-gray-500 text-base no-underline transition-all duration-300 hover:text-black hover:translate-x-1 inline-block">Dashboard</a>
-        <a href="{{ route('projects.index') }}" class="text-gray-500 text-base no-underline transition-all duration-300 hover:text-black hover:translate-x-1 inline-block">Projects</a>
+    <x-header type="burger" :side="true">
+        <a href="{{ route('projects.index') }}" class="block px-3 py-2 md:p-0 text-gray-500 text-base no-underline transition-all duration-300 hover:text-black hover:translate-x-1">Projects</a>
     </x-header>
 
-    <div class="min-h-screen flex items-center justify-center px-4 mt-14 mb-8 md:my-8">
+    <div class="min-h-screen flex items-center justify-center px-4 mt-20 mb-8 md:my-8">
         <div class="max-w-2xl w-full space-y-8 animate-[fadeUp_1.2s_cubic-bezier(0.16,1,0.3,1)_both]">
             <div class="bg-white p-8 rounded-lg border border-gray-200">
                 <h1 class="text-3xl font-bold text-gray-900 mb-6">About uitgeteld.xyz</h1>
                 
                 <div class="space-y-4 text-gray-700">
                     <p class="leading-relaxed">
-                        A minimal link aggregator for developers and creators. No bloat, no fluff—just a clean way to share your work and connect with the world.
+                        Your digital home. One place to share everything—your projects, your links, your story. Built for creators who value simplicity and substance.
                     </p>
                     
                     <p class="leading-relaxed">
@@ -56,7 +54,7 @@
                 
                 <div class="space-y-4">
                     <p class="text-gray-700 leading-relaxed">
-                        Want an account? Have feedback or ideas? Drop us a line.
+                        Want an account? Have feedback or ideas? Drop me a line.
                     </p>
                     
                     <div class="bg-gray-900 p-6 rounded-lg border border-gray-800 font-mono text-sm" style="background-color: #1e1e1e; border-color: #3c3c3c;">
@@ -71,15 +69,15 @@
                     </div>
 
                     <p class="text-sm text-gray-500">
-                        Just send an email describing what you're working on or what brought you here. We read and reply to everything.
+                        Just send an email describing what you're working on or what brought you here. I read and reply to everything.
                     </p>
                 </div>
             </div>
 
-            <div class="bg-gray-900 p-8 rounded-lg border border-gray-900">
+            <div class="bg-gray-900 p-8 rounded-lg border border-gray-800">
                 <h2 class="text-2xl font-bold text-white mb-4">Join the Community</h2>
                 <p class="text-gray-300 mb-6">
-                    Whether you're a developer, designer, artist, or creator—uitgeteld.xyz is built for you. Share your links, showcase your projects, and connect with like-minded people. <span class="font-mono" style="color: #4ec9b0;">uitgeteld@gmail.com</span>
+                    Whether you're a developer, designer, artist, or creator uitgeteld.xyz is built for you. Share your links, showcase your projects, and connect with like-minded people. <span class="font-mono" style="color: #4ec9b0;">uitgeteld@gmail.com</span>
                 </p>
                 <a href="mailto:uitgeteld@gmail.com" class="inline-block px-6 py-2 bg-white text-gray-900 font-medium rounded-lg hover:bg-gray-100 transition-colors cursor-pointer">
                     Get Started

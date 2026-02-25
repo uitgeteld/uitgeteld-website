@@ -1,12 +1,5 @@
 <x-layout :header="true" :footer="false">
-    <x-header type="sidebar">
-        <a href="{{ route('home') }}" class="block px-3 py-2 text-gray-600 font-medium transition-all duration-300 hover:text-black hover:translate-x-1">Home</a>
-        <a href="{{ route('projects.user') }}" class="block px-3 py-2 text-gray-600 font-medium transition-all duration-300 hover:text-black hover:translate-x-1">Projects</a>
-        @if(Auth::user() && Auth::user()->is_admin)
-        <a href="{{ route('users.index') }}" class="block px-3 py-2 text-gray-600 font-medium transition-all duration-300 hover:text-black hover:translate-x-1">Users</a>
-        @endif
-        <a href="{{ route('profile.show') }}" class="block px-3 py-2 text-gray-600 font-medium transition-all duration-300 hover:text-black hover:translate-x-1">Profile</a>
-    </x-header>
+    <x-header type="sidebar" />
 
     <div class="mb-6">
         <h1 class="text-2xl font-bold text-gray-900">Edit User</h1>
@@ -14,11 +7,10 @@
     <hr class="border-gray-300 mb-6">
 
     <div class="max-w-2xl mx-auto px-4 py-4 space-y-6">
-        
-        <!-- Profile Information -->
+
         <div class="bg-white p-6 rounded-lg border border-gray-200">
             <h2 class="text-lg font-semibold text-gray-900 mb-4">Profile Information</h2>
-            
+
             <form action="{{ route('users.update', $user) }}" method="POST" class="space-y-4">
                 @csrf
                 @method('PUT')
@@ -55,9 +47,9 @@
             <div class="mt-4 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm">
                 <ul class="list-disc list-inside space-y-1">
                     @foreach ($errors->all() as $error)
-                        @if (!str_contains($error, 'password'))
-                        <li>{{ $error }}</li>
-                        @endif
+                    @if (!str_contains($error, 'password'))
+                    <li>{{ $error }}</li>
+                    @endif
                     @endforeach
                 </ul>
             </div>
@@ -70,13 +62,12 @@
             @endif
         </div>
 
-        <!-- Two-Factor Authentication Status -->
         <div class="bg-white p-6 rounded-lg border border-gray-200">
             <h2 class="text-lg font-semibold text-gray-900 mb-2">Two-Factor Authentication</h2>
             <p class="text-sm text-gray-600 mb-4">
                 Additional security status for this account.
             </p>
-            
+
             @if($user->two_factor_secret)
             <span class="text-sm text-green-600 font-medium">✓ Enabled</span>
             @else
@@ -84,15 +75,13 @@
             @endif
         </div>
 
-        <!-- Change Password -->
         <div class="bg-white p-6 rounded-lg border border-gray-200">
             <h2 class="text-lg font-semibold text-gray-900 mb-4">Change Password</h2>
-            
+
             <form action="{{ route('users.update', $user) }}" method="POST" class="space-y-4">
                 @csrf
                 @method('PUT')
 
-                <!-- Hidden fields to maintain other data -->
                 <input type="hidden" name="name" value="{{ $user->name }}">
                 <input type="hidden" name="email" value="{{ $user->email }}">
                 @if($user->is_admin)

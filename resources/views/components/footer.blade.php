@@ -1,1 +1,1 @@
-<footer class="p-3 text-center text-gray-600 bg-white border-t border-gray-200">&copy; 2026 uitgeteld.xyz</footer>
+<footer class="p-3 text-center text-gray-600 bg-white border-t border-gray-200">&copy; {{ now()->year }} uitgeteld.xyz</footer>

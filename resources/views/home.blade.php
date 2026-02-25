@@ -1,9 +1,5 @@
 <x-layout :footer="false" :overflow="true">
-    <x-header type="burger">
-        <a href="{{ route('dashboard') }}" class="text-gray-500 text-base no-underline transition-all duration-300 hover:text-black hover:translate-x-1 inline-block">Dashboard</a>
-        <a href="{{ route('projects.index') }}" class="text-gray-500 text-base no-underline transition-all duration-300 hover:text-black hover:translate-x-1 inline-block">Projects</a>
-    </x-header>
-
+    <x-header type="burger" />
     <div class="text-center animate-[fadeUp_1.2s_cubic-bezier(0.16,1,0.3,1)_both] flex flex-col items-center justify-center min-h-screen gap-8">
         <h1 class="text-[clamp(20px,7vw,96px)] font-bold tracking-tight leading-none animate-[float_3s_ease-in-out_infinite]">
             uitgeteld.xyz
@@ -20,7 +16,7 @@
                 <code class="text-[#d4d4d4]"><span class="text-[#4ec9b0]">npm</span> <span class="text-[#9cdcfe]">i</span> <span class="text-[#ce9178]">uitgeteld.xyz</span> <span class="text-[#569cd6]">--dev</span></code>
             </div>
         </div> -->
-        
+
         <!-- <div class="bg-[#1e1e1e] px-6 py-4 rounded-lg font-mono text-sm md:text-base shadow-2xl border-2 border-[#272727]">
             <code class="text-[#d4d4d4]"><span class="text-[#4ec9b0]">$</span> <span class="text-[#4ec9b0]">npm</span> <span class="text-[#9cdcfe]">i</span> <span class="text-[#569cd6]">--save</span> <span class="text-[#ce9178]">uitgeteld.xyz</span></code>
         </div> -->

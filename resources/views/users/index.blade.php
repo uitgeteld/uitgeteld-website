@@ -1,12 +1,5 @@
 <x-layout :header="true">
-    <x-header type="sidebar">
-        <a href="{{ route('home') }}" class="block px-3 py-2 text-gray-600 font-medium transition-all duration-300 hover:text-black hover:translate-x-1">Home</a>
-        <a href="{{ route('projects.user') }}" class="block px-3 py-2 text-gray-600 font-medium transition-all duration-300 hover:text-black hover:translate-x-1">Projects</a>
-        @if(Auth::user() && Auth::user()->is_admin)
-        <a href="{{ route('users.index') }}" class="block px-3 py-2 text-gray-600 font-medium transition-all duration-300 hover:text-black hover:translate-x-1">Users</a>
-        @endif
-        <a href="{{ route('profile.show') }}" class="block px-3 py-2 text-gray-600 font-medium transition-all duration-300 hover:text-black hover:translate-x-1">Profile</a>
-    </x-header>
+    <x-header type="sidebar" />
 
     <div class="mb-6 flex items-center justify-between">
         <h1 class="text-2xl font-bold text-gray-900">Users</h1>
